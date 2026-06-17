@@ -10,12 +10,18 @@
     "build": "vite build && tsc -p tsconfig.electron.json",
     "preview": "vite preview"
   },
-  "keywords": ["linux", "monitor", "electron", "react"],
+  "keywords": [
+    "linux",
+    "monitor",
+    "electron",
+    "react"
+  ],
   "author": "",
   "license": "MIT",
   "dependencies": {
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "systeminformation": "^5.31.7"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",

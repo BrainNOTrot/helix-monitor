@@ -1,24 +1,29 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { SystemData } from '../shared/system'
 
 const App: React.FC = () => {
+  const [data, setData] = useState<SystemData | null>(null)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    window.electronAPI.getSystemData()
+      .then(setData)
+      .catch((err: Error) => setError(err.message))
+  }, [])
+
   return (
     <div style={{
       backgroundColor: '#0f1117',
       color: '#e2e8f0',
       height: '100vh',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      fontFamily: 'system-ui, sans-serif'
+      padding: '2rem',
+      fontFamily: 'monospace',
+      overflow: 'auto'
     }}>
-      <div style={{ textAlign: 'center' }}>
-        <h1 style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>
-          ⬡ Helix Monitor
-        </h1>
-        <p style={{ color: '#64748b', fontSize: '1rem' }}>
-          Foundation established. Stack is working.
-        </p>
-      </div>
+      <h1>⬡ Helix Monitor — IPC Test</h1>
+      {error && <p style={{ color: 'red' }}>Error: {error}</p>}
+      {!data && !error && <p>Loading system data...</p>}
+      {data && <pre>{JSON.stringify(data, null, 2)}</pre>}
     </div>
   )
 }

@@ -6,12 +6,12 @@
     "moduleResolution": "bundler",
     "jsx": "react-jsx",
     "strict": true,
-    "rootDir": "./src",
+    "rootDir": ".",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
     "outDir": "dist/src"
   },
-  "include": ["src"]
+  "include": ["src", "shared"]
 }

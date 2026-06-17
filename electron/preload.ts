@@ -1,5 +1,6 @@
-import { contextBridge } from 'electron'
+import { contextBridge, ipcRenderer } from 'electron'
+import { SystemData } from '../shared/system'
 
 contextBridge.exposeInMainWorld('electronAPI', {
-  version: process.versions.electron,
+  getSystemData: (): Promise<SystemData> => ipcRenderer.invoke('get-system-data'),
 })
