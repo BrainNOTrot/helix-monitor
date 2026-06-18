@@ -5,7 +5,15 @@ import { getAllSystemData } from './systemInfo'
 const isDev = process.env.NODE_ENV === 'development'
 
 function createWindow(): void {
-  const preloadPath = path.join(app.getAppPath(), 'preload.js')
+  const preloadPath = path.join(
+    app.getAppPath(),
+    'dist',
+    'electron',
+    'preload.js'
+  )
+
+  console.log('App path:', app.getAppPath())
+  console.log('Preload path:', preloadPath)
 
   const mainWindow = new BrowserWindow({
     width: 1200,
