@@ -1,18 +1,22 @@
 import React from 'react'
-import { useSystemData } from '../hooks/useSystemData'
+import { SystemData } from '../../shared/system'
 import { CpuCard } from '../components/CpuCard'
 import { RamCard } from '../components/RamCard'
 import { DiskCard } from '../components/DiskCard'
 import { UptimeCard } from '../components/UptimeCard'
 import { SystemCard } from '../components/SystemCard'
 
-export const Dashboard: React.FC = () => {
-  const { data, loading, error } = useSystemData()
+interface DashboardProps {
+  data: SystemData | null
+  loading: boolean
+  error: string | null
+}
 
+export const Dashboard: React.FC<DashboardProps> = ({ data, loading, error }) => {
   if (loading) {
     return (
       <div className="state-container">
-        <span className="state-icon">⟳</span>
+        <div className="spinner" />
         <span className="state-message">Loading system data...</span>
       </div>
     )
@@ -21,7 +25,7 @@ export const Dashboard: React.FC = () => {
   if (error) {
     return (
       <div className="state-container">
-        <span className="state-icon">⚠️</span>
+        <span style={{ fontSize: '1.5rem' }}>⚠️</span>
         <span className="state-message">Error: {error}</span>
       </div>
     )

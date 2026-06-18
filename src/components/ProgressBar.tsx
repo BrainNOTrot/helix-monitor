@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 
 interface ProgressBarProps {
   percentage: number
   color: string
-  leftLabel?: string
-  rightLabel?: string
+  leftLabel?: ReactNode
+  rightLabel?: ReactNode
 }
 
 export const ProgressBar: React.FC<ProgressBarProps> = ({

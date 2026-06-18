@@ -1,6 +1,7 @@
 import React from 'react'
 import { DiskData } from '../../shared/system'
 import { ProgressBar } from './ProgressBar'
+import { PercentageBadge } from './PercentageBadge'
 
 interface DiskCardProps {
   data: DiskData
@@ -37,7 +38,7 @@ export const DiskCard: React.FC<DiskCardProps> = ({ data }) => {
         percentage={data.percentage}
         color={getUsageColor(data.percentage)}
         leftLabel="Used"
-        rightLabel={`${data.percentage}%`}
+        rightLabel={<PercentageBadge value={data.percentage} colorScheme="purple" thresholds={{ yellow: 70, red: 90 }} />}
       />
     </div>
   )

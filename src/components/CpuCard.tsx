@@ -1,6 +1,7 @@
 import React from 'react'
 import { CpuData } from '../../shared/system'
 import { ProgressBar } from './ProgressBar'
+import { PercentageBadge } from './PercentageBadge'
 
 interface CpuCardProps {
   data: CpuData
@@ -33,7 +34,7 @@ export const CpuCard: React.FC<CpuCardProps> = ({ data }) => {
         percentage={data.usage}
         color={getUsageColor(data.usage)}
         leftLabel="Usage"
-        rightLabel={`${data.usage}%`}
+        rightLabel={<PercentageBadge value={data.usage} thresholds={{ yellow: 50, red: 80 }} />}
       />
     </div>
   )

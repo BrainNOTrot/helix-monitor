@@ -5,10 +5,10 @@
 }
 
 :root {
-  --bg-primary: #0f1117;
-  --bg-secondary: #1a1d2e;
-  --bg-card: #1e2130;
-  --bg-card-hover: #252840;
+  --bg-primary: #0d0f1a;
+  --bg-secondary: #13162b;
+  --bg-card: #181b2e;
+  --bg-card-hover: #1e2240;
 
   --accent-blue: #4f8ef7;
   --accent-green: #3ecf8e;
@@ -21,13 +21,16 @@
   --text-secondary: #94a3b8;
   --text-muted: #475569;
 
-  --border: #2d3148;
-  --border-hover: #3d4268;
+  --border: #1e2240;
+  --border-hover: #2d3260;
 
-  --radius: 12px;
+  --radius: 14px;
   --radius-sm: 8px;
 
-  --shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  --shadow: 0 4px 32px rgba(0, 0, 0, 0.5);
+  --shadow-hover: 0 8px 40px rgba(0, 0, 0, 0.6);
+
+  --transition: 0.25s ease;
 }
 
 html, body, #root {
@@ -45,18 +48,38 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-primary);
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 3px;
+  background: var(--border-hover);
+  border-radius: 99px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--border-hover);
+  background: var(--text-muted);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
 }

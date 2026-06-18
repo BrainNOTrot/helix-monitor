@@ -1,6 +1,7 @@
 import React from 'react'
 import { RamData } from '../../shared/system'
 import { ProgressBar } from './ProgressBar'
+import { PercentageBadge } from './PercentageBadge'
 
 interface RamCardProps {
   data: RamData
@@ -37,7 +38,7 @@ export const RamCard: React.FC<RamCardProps> = ({ data }) => {
         percentage={data.percentage}
         color={getUsageColor(data.percentage)}
         leftLabel="Used"
-        rightLabel={`${data.percentage}%`}
+        rightLabel={<PercentageBadge value={data.percentage} colorScheme="blue" />}
       />
     </div>
   )
