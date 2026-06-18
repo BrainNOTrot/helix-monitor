@@ -18,13 +18,13 @@ Download the latest AppImage from the Releases page.
 Make it executable:
 
 ```bash
-chmod +x Helix-Monitor.AppImage
+chmod +x *.AppImage
 ```
 
 Run:
 
 ```bash
-./Helix-Monitor.AppImage
+./*.AppImage
 ```
 
 ## Development
