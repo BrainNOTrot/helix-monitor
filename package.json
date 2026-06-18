@@ -8,7 +8,25 @@
     "dev:vite": "vite",
     "dev:electron": "wait-on http://localhost:5173 && tsc -p tsconfig.electron.json && NODE_ENV=development electron --ozone-platform=x11 dist/electron/main.js",
     "build": "vite build && tsc -p tsconfig.electron.json",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "package": "vite build && tsc -p tsconfig.electron.json && electron-builder"
+  },
+  "build": {
+    "appId": "com.helixmonitor.app",
+    "productName": "Helix Monitor",
+    "icon": "assets/icon.png",
+    "linux": {
+      "target": ["AppImage", "deb"],
+      "category": "System"
+    },
+    "files": [
+      "dist/**/*",
+      "assets/**/*",
+      "shared/**/*"
+    ],
+    "directories": {
+      "output": "release"
+    }
   },
   "keywords": [
     "linux",
